@@ -1,0 +1,19 @@
+#!/bin/bash
+clear
+# listagem das interfaces de rede  e endereços IP 
+# gravadas em um arquivo chamado net_interface
+
+echo "Interfaces de Rede e Endereços IP" > net_interface
+ip -o -4 addr show | while read linha
+do
+interface=$(echo $linha | awk '{print $2}')
+ipaddr=$(echo $linha | awk '{print $4}')
+echo "Interface: $interface | IP: $ipaddr" >> net_interface
+done
+echo ""
+echo "Arquivo 'net_interface' criado com sucesso!"
+
+
+
+
+
