@@ -1,0 +1,7 @@
+#!/bin/bash
+clear
+TAMANHO= $(du -s /var/log | cut -f1)
+
+if [ $TAMANHO -gt 100000 ]; then
+    echo "Alerta: A pasta de logs está muito grande!"
+fi
